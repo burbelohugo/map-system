@@ -42,13 +42,31 @@ class PavedRoad extends Edge {
   public $supportedTransportMethods = [TR_METHOD_BIKE, TR_METHOD_CAR];
 }
 
+class Vertice {
+  public $name;
+
+  function __construct($name) {
+        $this->name = $name;
+  }
+}
+
 class Map {
     public $edges;
     public $vertices;
 
-    function __construct($initialEdges, $initialVertices) {
-        $this->edges = $initialEdges;
+    function __construct($initialVertices, $initialEdges) {
         $this->vertices = $initialVertices;
+        $this->edges = $initialEdges;
+    }
+
+    function getShortestDistance($vertA, $vertB, $transportMethod) {
+      // path finding algorithm
     }
 }
 
+// example implementation
+
+
+$edges = [new Sidewalk(10, "A", "B"), new PavedRoad(20, "B", "C"), new PavedRoad(100, "A", "C")];
+$vertices = ["A", "B", "C"];
+$map = new Map($vertices, $edges);
